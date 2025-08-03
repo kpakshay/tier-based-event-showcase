@@ -11,14 +11,14 @@ export default function AboutUs() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition">
-            <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">🎯 Our Mission</h2>
+            <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2"> Our Mission</h2>
             <p className="text-gray-600 dark:text-gray-400">
               To provide a seamless, engaging event platform that scales with your interests and access level. Everyone deserves great events.
             </p>
           </div>
 
           <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition">
-            <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">🚀 What We Offer</h2>
+            <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2"> What We Offer</h2>
             <p className="text-gray-600 dark:text-gray-400">
               From Free to Platinum, enjoy a curated feed of events based on your current tier. Upgrade anytime to explore more.
             </p>
@@ -26,7 +26,7 @@ export default function AboutUs() {
         </div>
 
         <p className="mt-12 text-sm text-gray-400 dark:text-gray-500">
-          Built with ❤️ using Next.js, Clerk, Supabase & Tailwind CSS.
+          Built using Next.js, Clerk, Supabase & Tailwind CSS.
         </p>
       </div>
     // </div>
