@@ -10,6 +10,7 @@ const Event = () => {
   const { user } = useUser();
   const [events, setEvents] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const userTier = user?.publicMetadata?.tier || 'free';
 
@@ -24,6 +25,7 @@ const Event = () => {
       const res = await fetch('/api/event');
       const data = await res.json();
       setEvents(data);
+      setLoading(false);
     }
     fetchEvents();
   }, []);
@@ -51,11 +53,17 @@ const Event = () => {
 
   return (
     <>
+    {loading ? (
+  <div className="flex justify-center items-center h-96">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-purple-600"></div>
+  </div>
+) : (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 justify-items-center p-6">
         {filterTiers.map((item) => (
           <EventCard key={item.id} {...item} />
         ))}
       </div>
+      )}
 
       <div className="flex flex-col items-center mt-8 text-center space-y-4">
         <h2 className="text-lg font-semibold text-gray-800">
