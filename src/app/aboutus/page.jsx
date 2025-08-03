@@ -6,7 +6,7 @@ export default function AboutUs() {
           About Us
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-          Welcome to <span className="font-semibold text-purple-600 dark:text-purple-400">Tier Events</span> — your personalized event experience. Whether you're on a free plan or a premium tier, we ensure you get the best.
+          Welcome to <span className="font-semibold text-purple-600 dark:text-purple-400">Tier Events</span> — your personalized event experience. Whether you are on a free plan or a premium tier, we ensure you get the best.
         </p>
 
         <div className="grid gap-6 sm:grid-cols-2">
