@@ -8,7 +8,6 @@ import {
     SignedOut,
     UserButton,
 } from '@clerk/nextjs'
-// import ModalSignUpButton from "@/components/ModalSignUpButton";
 
 const NavBar = () => {
     const pathname = usePathname();
@@ -41,7 +40,7 @@ const NavBar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden sm:ml-6 sm:block">
                         <SignedOut>
                             <SignUpButton  mode="modal" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"></SignUpButton>
                             <SignInButton mode="modal" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"></SignInButton>
@@ -49,21 +48,6 @@ const NavBar = () => {
                         <SignedIn>
                             <UserButton></UserButton>
                         </SignedIn>
-
-                        {/* <!-- Profile dropdown --> */}
-                        {/* <el-dropdown className="relative ml-3">
-                            <button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800">
-                                <span className="absolute -inset-1.5"></span>
-                                <span className="sr-only">Open user menu</span>
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="size-8 rounded-full" />
-                            </button>
-
-                            <el-menu anchor="bottom end" popover className="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your Profile</a>
-                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
-                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Sign out</a>
-                            </el-menu>
-                        </el-dropdown> */}
                     </div>
                 </div>
             </div>
@@ -71,11 +55,17 @@ const NavBar = () => {
             <el-disclosure id="mobile-menu" hidden className="block sm:hidden">
                 <div className="space-y-1 px-2 pt-2 pb-3">
                     {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                    <a href="#" aria-current="page" className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-                    <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-                    <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-                    <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-                </div>
+                                <Link href="/" className={`block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${pathname == "/home" ? "bg-gray-700 text-white" : ''}`}>Dashboard</Link>
+                                <Link href="/events" className={`block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${pathname == "/events" ? "bg-gray-700 text-white" : ''}`}>Events</Link>
+                                <Link href="/aboutus" className={`block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${pathname == "/aboutus" ? "bg-gray-700 text-white" : ''}`}>About Us</Link>
+                                <SignedOut>
+                            <SignUpButton  mode="modal" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"></SignUpButton>
+                            <SignInButton mode="modal" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"></SignInButton>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton></UserButton>
+                        </SignedIn>
+                   </div>
             </el-disclosure>
         </nav>
     )
